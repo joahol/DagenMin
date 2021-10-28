@@ -7,9 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1000">
     <Grid Margin="0,0,0,0" RenderTransformOrigin="0,0" Background="#FF8E8E8E">
-        <ListView x:Name="lstVTasks" HorizontalAlignment="Left" Height="466" Margin="51,0,0,0" VerticalAlignment="Center" Width="422"
-                  ItemsSource="{Binding Rows,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"/>
-                    
-        <Label Content="Oppgaver" HorizontalAlignment="Left" Margin="51,117,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <ListView x:Name="lstVTasks" HorizontalAlignment="Left" Height="466" Margin="51,0,0,0" VerticalAlignment="Center" Width="422" SelectionChanged="listViewOnSelectionChanged">
+            <ListView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <WrapPanel>
+                        <TextBlock Text="{Binding taskName}"></TextBlock>
+                        <TextBlock Text="{Binding finished}"></TextBlock>
+                        <CheckBox Name="Ferdig"  IsChecked="{Binding finished}"></CheckBox>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Content="Dagen i dag" HorizontalAlignment="Left" Margin="51,117,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lbldebug" Content="Debug" HorizontalAlignment="Left" Margin="509,0,0,0" VerticalAlignment="Center"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Right" Margin="0,633,909,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="110,633,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="178,633,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

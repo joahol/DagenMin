@@ -11,12 +11,12 @@ namespace DagenMin
         String sqlSelectString = "Select * from tasks";
 
 
-        public System.Collections.ObjectModel.ObservableCollection<Task> getAllDaysTasks() {
+        public List<Task> getAllDaysTasks() {
             SQLiteConnection con = getSQLConnection();
             con.Open();
             SQLiteCommand sqlcom = new SQLiteCommand(sqlSelectString,con);
             SQLiteDataReader sqlread = sqlcom.ExecuteReader();
-            System.Collections.ObjectModel.ObservableCollection<Task> tasks = new();
+            List<Task> tasks = new();
             while (sqlread.Read()) {
                 Console.WriteLine(sqlread[1] + " " + sqlread[2] + " " + sqlread[3]);
                 Task t = new Task(int.Parse(sqlread[0].ToString()), sqlread[1].ToString(), sqlread[2].ToString(), bool.Parse(sqlread[3].ToString()));

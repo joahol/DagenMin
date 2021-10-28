@@ -9,9 +9,9 @@ namespace DagenMin
     
     class Task
     {
-       public String taskName = "";
-       public String taskDescription = "";
-       public bool finished = false;
+       public String taskName { get; set; }
+       public String taskDescription { get; set; }
+        public bool finished { get; set; }
         public int id = -1;
         public Task() { }
         public Task(String taskname, String taskdescription, bool finishe) {

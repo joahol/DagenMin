@@ -20,18 +20,24 @@ namespace DagenMin
     /// </summary>
     public partial class MainWindow : Window
     {
-        System.Collections.ObjectModel.ObservableCollection<Task> dbTasks;
+        List<Task> dbTasks;
         public MainWindow()
         {
             InitializeComponent();
             StorageHandler shandler = new StorageHandler();
-            Task testTask = new Task("Save the day", "Be polite to atleast one person", false);
+            Task testTask = new Task("Save the day", "Get a Job", true);
             shandler.storeNewTask(testTask);
 
              dbTasks= shandler.getAllDaysTasks();
+     
             lstVTasks.ItemsSource = dbTasks;
 
-          
+                }
+        private void listViewOnSelectionChanged(object sender, SelectionChangedEventArgs e) {
+            Console.WriteLine("Selection changed");
+            Task t = (Task)e.AddedItems[0];
+            lbldebug.Content = t.taskDescription;
         }
+
     }
 }
