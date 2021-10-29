@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -7,10 +8,20 @@ using System.Threading.Tasks;
 
 namespace DagenMin
 {
-    class TaskViewModel : System.ComponentModel.INotifyPropertyChanged
+    class TaskViewModel
     {
+        StorageHandler shandler;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public void Initialize() {
+             shandler = new StorageHandler(); ;
+            Tasks = shandler.getAllDaysTasks();
+        }
+
+        public ObservableCollection<Task> Tasks 
+        { 
+            get;
+            set;
+        }
         public TaskViewModel() { }
         public String taskName
         { 
@@ -28,10 +39,5 @@ namespace DagenMin
             set;
         }
 
-        private void NotifyPropertyChanged(String obj) {
-            if (PropertyChanged != null) {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(obj));
-            } 
-        }
     }
 }
