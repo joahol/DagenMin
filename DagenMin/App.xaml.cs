@@ -13,5 +13,6 @@ namespace DagenMin
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }

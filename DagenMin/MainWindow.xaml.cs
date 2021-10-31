@@ -41,7 +41,7 @@ namespace DagenMin
         }
         private void onBtnAdd(object sender, RoutedEventArgs rea) {
             
-            nyOppg = new NyOppgave();
+            nyOppg = new NyOppgave(tvm);
             nyOppg.Show();
         }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DagenMin
 {
     
-    class Task : INotifyPropertyChanged
+   public class Task : INotifyPropertyChanged
     {
        public String taskName { get; set; }
        public String taskDescription { get; set; }

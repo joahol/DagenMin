@@ -8,23 +8,22 @@ using System.Threading.Tasks;
 
 namespace DagenMin
 {
-    class TaskViewModel
+    public class TaskViewModel
     {
         StorageHandler shandler;
+        private ObservableCollection<Task> tasks;
 
-        public void Initialize() {
-             shandler = new StorageHandler(); ;
+        public void Initialize()
+        {
+            shandler = new StorageHandler(); ;
             Tasks = shandler.getAllDaysTasks();
         }
 
-        public ObservableCollection<Task> Tasks 
-        { 
-            get;
-            set;
-        }
+        public ObservableCollection<Task> Tasks { get => tasks; set => tasks = value; }
+
         public TaskViewModel() { }
         public String taskName
-        { 
+        {
             get;
             set;
         }

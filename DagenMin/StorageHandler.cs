@@ -41,6 +41,7 @@ namespace DagenMin
             SQLiteCommand sqlCom = new SQLiteCommand(sqlString, con);
             sqlCom.ExecuteNonQuery();
             con.Close();
+           
             return result;
         }
 

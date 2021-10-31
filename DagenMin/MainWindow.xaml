@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:DagenMin"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1000">
-    
-    
-    <Grid Margin="0,0,0,0" RenderTransformOrigin="0,0" Background="#FF8E8E8E">
-        <ListView x:Name="lstVTasks" HorizontalAlignment="Left" Height="466" Margin="51,0,0,0" VerticalAlignment="Center" Width="422" SelectionChanged="listViewOnSelectionChanged" ItemsSource = "{Binding Path = Tasks}"  >
+
+
+    <Grid Margin="0,0,0,0" RenderTransformOrigin="0,0" Background="#227C9D">
+        <ListView x:Name="lstVTasks" HorizontalAlignment="Left" Height="466" Margin="51,0,0,0" VerticalAlignment="Center" Width="422" SelectionChanged="listViewOnSelectionChanged" ItemsSource = "{Binding Path = Tasks}"  Background="#FFFFFC">
             <ListView.ItemTemplate>
 
                 <DataTemplate>
@@ -23,10 +23,11 @@
             </ListView.ItemTemplate>
         </ListView>
         <Label Content="Dagen i dag" HorizontalAlignment="Left" Margin="51,117,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label x:Name="lbldebug" Content="Debug" HorizontalAlignment="Left" Margin="509,0,0,0" VerticalAlignment="Center"/>
-        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Right" Margin="0,633,909,0" VerticalAlignment="Top" Click="onBtnAdd"/>
-        <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="110,633,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="178,633,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbldebug" Content="Debug" HorizontalAlignment="Left" Margin="51,697,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Right" Margin="0,633,727,123" Click="onBtnAdd" Background="#FF7F11" FontSize="18" Width="69"/>
+        <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="296,633,0,0" VerticalAlignment="Top" Background="#FF7F11" FontSize="18" Width="58"/>
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="376,633,0,123" Background="#FF7F11" FontSize="18" Width="97"/>
+        <Calendar x:Name="calDagen" HorizontalAlignment="Left" Margin="510,159,0,0" VerticalAlignment="Top" Height="176" Width="216" FontSize="18"/>
     </Grid>
     <Window.Resources>
         <Style TargetType="ListView">

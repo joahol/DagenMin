@@ -20,19 +20,24 @@ namespace DagenMin
     public partial class NyOppgave : Window
     {
         private StorageHandler storeHandler;
-        
-        public NyOppgave()
+        TaskViewModel tVM;        
+        public NyOppgave(TaskViewModel tvm)
         {
             InitializeComponent();
             storeHandler = new StorageHandler();
+            tVM = tvm;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             String taskName = txbName.Text;
             String description = txbDescription.Text;
-           // DateTime date = cal.SelectedDate.Value;
-            storeHandler.storeNewTask(new Task(taskName, description, false));
+            DateTime date = cal.SelectedDate.Value;
+            Task t = new Task(taskName, description, false);
+            storeHandler.storeNewTask(t);
+
+            tVM.Tasks.Add(t);
+                
             this.Close();
         }
 
