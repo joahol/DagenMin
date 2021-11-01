@@ -32,7 +32,15 @@ namespace DagenMin
         {
             String taskName = txbName.Text;
             String description = txbDescription.Text;
-            DateTime date = cal.SelectedDate.Value;
+            DateTime date;
+            if (cal.SelectedDate.HasValue)
+            {
+                date = cal.SelectedDate.Value;
+            }
+            else {
+                date = System.DateTime.Today;
+                cal.SelectedDate = date;
+            }
             Task t = new Task(taskName, description, false);
             storeHandler.storeNewTask(t);
 

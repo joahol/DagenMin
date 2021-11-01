@@ -48,5 +48,41 @@ namespace DagenMin
         public bool updateTask() {
             return false;
         }
+
+        #region DataBaseCreation
+        //check if database exist
+        public Boolean dataBaseExists() {
+            Boolean exists = false;
+            SQLiteConnection con = new SQLiteConnection();
+            return exists;
+        }
+
+
+        //Creates a new database at the root path of the application
+        public Boolean createDataBase() {
+            Boolean success = false;
+
+            String dbArchitectureSQL = "CREATE TABLE IF NOT EXISTS tasks (taskid INTEGER  PRIMARY KEY AUTOINCREMENT,taskname TEXT NOT NULL,description, finished BOOLEAN NOT NULL, taskdate DATETIME); ";
+            //get local path
+            String localPath = System.IO.Directory.GetCurrentDirectory().ToString();
+            //create a database file at the root 
+            SQLiteConnection.CreateFile("myDay.db3");
+            SQLiteConnection con = new SQLiteConnection("data source=myDay.db3");
+            con.Open();
+            SQLiteCommand com = new SQLiteCommand(con);
+
+            com.CommandText = dbArchitectureSQL;
+            com.ExecuteNonQuery();
+            con.Close();
+
+
+            //commt file 
+
+            //return successfull
+
+            return success;
+        }
+
+        #endregion
     }
 }

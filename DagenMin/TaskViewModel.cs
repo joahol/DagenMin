@@ -15,7 +15,8 @@ namespace DagenMin
 
         public void Initialize()
         {
-            shandler = new StorageHandler(); ;
+            shandler = new StorageHandler();
+            shandler.createDataBase();
             Tasks = shandler.getAllDaysTasks();
         }
 
