@@ -84,5 +84,23 @@ namespace DagenMin
         }
 
         #endregion
+
+#region DataBaseQuerries
+        public void deleteRowById(int ID) {
+            SQLiteConnection con = getSQLConnection();
+            con.Open();
+            String deleteSQL = "Delete FROM tasks WHERE taskid='"+ID+"'; ";
+            //get local path
+            String localPath = System.IO.Directory.GetCurrentDirectory().ToString();
+          
+            SQLiteCommand com = new SQLiteCommand(con);
+
+            com.CommandText = deleteSQL;
+            com.ExecuteNonQuery();
+            con.Close();
+
+
+        }
+        #endregion
     }
 }

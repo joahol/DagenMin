@@ -36,13 +36,20 @@ namespace DagenMin
         }
         private void listViewOnSelectionChanged(object sender, SelectionChangedEventArgs e) {
             Console.WriteLine("Selection changed");
-            Task t = (Task)e.AddedItems[0];
-            lbldebug.Content = t.taskDescription;
+            if (e.AddedItems.Count > 0)
+            {
+                Task t = (Task)e.AddedItems[0];
+                lbldebug.Text = t.taskDescription;
+            }
         }
         private void onBtnAdd(object sender, RoutedEventArgs rea) {
             
             nyOppg = new NyOppgave(tvm);
             nyOppg.Show();
+        }
+        private void onBtnDelete(object sender, RoutedEventArgs args) {
+            Task t = (Task)lstVTasks.SelectedItem;
+            tvm.deleteRow(t);
         }
 
     }

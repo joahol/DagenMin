@@ -9,7 +9,7 @@
 
 
     <Grid Margin="0,0,0,0" RenderTransformOrigin="0,0" Background="#227C9D">
-        <ListView x:Name="lstVTasks" HorizontalAlignment="Left" Height="466" Margin="51,0,0,0" VerticalAlignment="Center" Width="422" SelectionChanged="listViewOnSelectionChanged" ItemsSource = "{Binding Path = Tasks}"  Background="#FFFFFC">
+        <ListView x:Name="lstVTasks" HorizontalAlignment="Left" Height="466" Margin="51,0,0,0" VerticalAlignment="Center" Width="422" SelectionChanged="listViewOnSelectionChanged" ItemsSource = "{Binding Path = Tasks}"  Background="#FFFFFC" >
             <ListView.ItemTemplate>
 
                 <DataTemplate>
@@ -23,15 +23,15 @@
             </ListView.ItemTemplate>
         </ListView>
         <Label Content="Dagen i dag" HorizontalAlignment="Left" Margin="51,117,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label x:Name="lbldebug" Content="Debug" HorizontalAlignment="Left" Margin="51,697,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Right" Margin="0,633,727,123" Click="onBtnAdd" Background="#FF7F11" FontSize="18" Width="69"/>
-        <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="296,633,0,0" VerticalAlignment="Top" Background="#FF7F11" FontSize="18" Width="58"/>
-        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="376,633,0,123" Background="#FF7F11" FontSize="18" Width="97"/>
-        <Calendar x:Name="calDagen" HorizontalAlignment="Left" Margin="510,159,0,0" VerticalAlignment="Top" Height="176" Width="216" FontSize="18"/>
+        <TextBlock x:Name="lbldebug" HorizontalAlignment="Left" Margin="529,374,0,0" VerticalAlignment="Top" Width="177" Height="251" Background="#FFFFFC" TextWrapping="Wrap"/>
+        <Button x:Name="btnAdd" Content="Add" Click="onBtnAdd" BorderThickness="1" Background="#FF7F11" FontSize="18" Height="50" HorizontalAlignment="Left" Margin="381,630,0,0" Width="92" VerticalAlignment="Top"/>
+        <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left"  Background="#FF7F11" FontSize="18" Width="100" Margin="234,630,0,104"/>
+        <Button x:Name="btnDelete" Content="Delete" Click="onBtnDelete" HorizontalAlignment="Left" Background="#FF7F11" FontSize="18" Width="100" Height="50" VerticalAlignment="Bottom" Margin="51,0,0,104"/>
+        <Calendar x:Name="calDagen" HorizontalAlignment="Left" Margin="510,159,0,0" VerticalAlignment="Top"  Background="#FFFFFC" Height="176" Width="216" FontSize="18"/>
     </Grid>
     <Window.Resources>
         <Style TargetType="ListView">
-            <Setter Property="Opacity" Value="0.8"></Setter>
+            <Setter Property="Opacity" Value="1"></Setter>
             <Style.Triggers>
                 <Trigger Property="IsSelected" Value="True">
                     <Trigger.Setters>

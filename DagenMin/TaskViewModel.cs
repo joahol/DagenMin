@@ -38,6 +38,10 @@ namespace DagenMin
             get;
             set;
         }
+        public void deleteRow(Task t) {
+            shandler.deleteRowById(t.id);
+            tasks.Remove(t);
 
+        }
     }
 }
