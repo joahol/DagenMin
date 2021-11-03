@@ -39,9 +39,21 @@ namespace DagenMin
             set;
         }
         public void deleteRow(Task t) {
-            shandler.deleteRowById(t.id);
-            tasks.Remove(t);
+            if (t != null)
+            {
+                shandler.deleteRowById(t.id);
+                tasks.Remove(t);
+            }
+        }
 
+        internal void updateRow(Task t)
+        {
+            shandler.updateTask(t);
+
+         
+                tasks = shandler.getAllDaysTasks();
+                
+            
         }
     }
 }

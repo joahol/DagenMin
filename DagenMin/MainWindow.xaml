@@ -9,7 +9,7 @@
 
 
     <Grid Margin="0,0,0,0" RenderTransformOrigin="0,0" Background="#227C9D">
-        <ListView x:Name="lstVTasks" HorizontalAlignment="Left" Height="466" Margin="51,0,0,0" VerticalAlignment="Center" Width="422" SelectionChanged="listViewOnSelectionChanged" ItemsSource = "{Binding Path = Tasks}"  Background="#FFFFFC" >
+        <ListView x:Name="lstVTasks" HorizontalAlignment="Left" Height="580" Margin="51,85,0,0" VerticalAlignment="Top" Width="422" SelectionChanged="listViewOnSelectionChanged" ItemsSource = "{Binding Path = Tasks}"  Background="#FFFFFC" >
             <ListView.ItemTemplate>
 
                 <DataTemplate>
@@ -22,12 +22,14 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Label Content="Dagen i dag" HorizontalAlignment="Left" Margin="51,117,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBlock x:Name="lbldebug" HorizontalAlignment="Left" Margin="529,374,0,0" VerticalAlignment="Top" Width="177" Height="251" Background="#FFFFFC" TextWrapping="Wrap"/>
-        <Button x:Name="btnAdd" Content="Add" Click="onBtnAdd" BorderThickness="1" Background="#FF7F11" FontSize="18" Height="50" HorizontalAlignment="Left" Margin="381,630,0,0" Width="92" VerticalAlignment="Top"/>
-        <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left"  Background="#FF7F11" FontSize="18" Width="100" Margin="234,630,0,104"/>
-        <Button x:Name="btnDelete" Content="Delete" Click="onBtnDelete" HorizontalAlignment="Left" Background="#FF7F11" FontSize="18" Width="100" Height="50" VerticalAlignment="Bottom" Margin="51,0,0,104"/>
-        <Calendar x:Name="calDagen" HorizontalAlignment="Left" Margin="510,159,0,0" VerticalAlignment="Top"  Background="#FFFFFC" Height="176" Width="216" FontSize="18"/>
+        <Label Content="Dagen i dag" HorizontalAlignment="Left" Margin="51,33,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBlock x:Name="lbldebug" Margin="518,305,130,0" VerticalAlignment="Top" Height="360" Background="#FFFFFC" TextWrapping="Wrap"/>
+        <StackPanel Orientation="Horizontal" Height="60" Margin="0,714,0,10">
+            <Button x:Name="btnAdd" Content="Add" Click="onBtnAdd" BorderThickness="1" Background="#FF7F11" FontSize="18" HorizontalAlignment="Left" Width="100" Height="50"/>
+            <Button x:Name="btnEdit" Content="Edit"  Click="onBtnEdit" Background="#FF7F11" FontSize="18" Height="50" Width="100" />
+            <Button x:Name="btnDelete" Content="Delete" Click="onBtnDelete" HorizontalAlignment="Left" Background="#FF7F11" FontSize="18" Width="100" Height="50" />
+        </StackPanel>
+            <Calendar x:Name="calDagen" HorizontalAlignment="Left" Margin="518,85,0,506"  Background="#FFFFFC" Width="352" FontSize="18"/>
     </Grid>
     <Window.Resources>
         <Style TargetType="ListView">

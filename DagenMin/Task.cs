@@ -11,7 +11,19 @@ namespace DagenMin
    public class Task : INotifyPropertyChanged
     {
        public String taskName { get; set; }
-       public String taskDescription { get; set; }
+       public String taskDescription {
+            get;
+
+
+            set;
+           /* {
+                if (value != this.taskDescription)
+                {
+                    taskDescription = value;
+                    RaisePropertyChanged("taskDescription");
+                }
+            }*/
+}
         public bool finished { get; set; }
         public int id = -1;
 

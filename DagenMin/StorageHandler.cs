@@ -33,6 +33,23 @@ namespace DagenMin
             SQLiteConnection con = new SQLiteConnection(@"Data source=C:\Users\Joakim\Documents\MyDay.db3");
             return con;
         }
+
+        internal void updateTask(Task t)
+        {
+            SQLiteConnection con = getSQLConnection();
+            con.Open();
+            String deleteSQL = "UPDATE tasks SET taskname='" + t.taskName + "', description='" + t.taskDescription + "' WHERE taskid='" + t.id + "';"; 
+            //get local path
+            String localPath = System.IO.Directory.GetCurrentDirectory().ToString();
+
+            SQLiteCommand com = new SQLiteCommand(con);
+
+            com.CommandText = deleteSQL;
+            com.ExecuteNonQuery();
+            con.Close();
+
+        }
+
         public bool storeNewTask(Task task) {
             bool result = false;
             SQLiteConnection con = getSQLConnection();

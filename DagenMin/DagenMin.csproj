@@ -10,4 +10,17 @@
     <PackageReference Include="System.Data.SQLite" Version="1.0.115" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="EditOppgave.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="EditOppgave.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

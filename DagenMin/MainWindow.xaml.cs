@@ -52,5 +52,14 @@ namespace DagenMin
             tvm.deleteRow(t);
         }
 
+        private void onBtnEdit(object sender, RoutedEventArgs args) {
+            Task t = (Task)lstVTasks.SelectedItem;
+            if (t != null) {
+                EditOppgave et = new EditOppgave(tvm,t);
+                et.Show();
+            }
+            
+        }
+
     }
 }
