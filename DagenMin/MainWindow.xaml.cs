@@ -32,14 +32,25 @@ namespace DagenMin
             tvm = new TaskViewModel();
             tvm.Initialize();
             lstVTasks.DataContext = tvm;
-          
+            lblDescription.DataContext = tvm;
+
+
         }
+
+        private void OnPropertyChanged() {
+            Task t = (Task)lstVTasks.SelectedItem;
+            if (t != null) {
+                lblDescription.Text = t.taskDescription;
+            }
+           
+        }
+
         private void listViewOnSelectionChanged(object sender, SelectionChangedEventArgs e) {
             Console.WriteLine("Selection changed");
             if (e.AddedItems.Count > 0)
             {
                 Task t = (Task)e.AddedItems[0];
-                lbldebug.Text = t.taskDescription;
+                lblDescription.Text = t.taskDescription;
             }
         }
         private void onBtnAdd(object sender, RoutedEventArgs rea) {
@@ -58,8 +69,15 @@ namespace DagenMin
                 EditOppgave et = new EditOppgave(tvm,t);
                 et.Show();
             }
-            
         }
 
+        private void lblDescription_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+            Task t = (Task)lstVTasks.SelectedItem;
+            if (t != null)
+            {
+                lblDescription.Text = t.taskDescription;
+            }
+        }
     }
 }

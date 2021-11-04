@@ -3,33 +3,45 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DagenMin"
+        xmlns:local="clr-namespace:DagenMin" d:DataContext="{d:DesignInstance Type=local:Task}"
+        xmlns:model="clr-namespace:DagenMin"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1000">
+        Title="MainWindow" Height="650" Width="800" >
 
 
-    <Grid Margin="0,0,0,0" RenderTransformOrigin="0,0" Background="#227C9D">
-        <ListView x:Name="lstVTasks" HorizontalAlignment="Left" Height="580" Margin="51,85,0,0" VerticalAlignment="Top" Width="422" SelectionChanged="listViewOnSelectionChanged" ItemsSource = "{Binding Path = Tasks}"  Background="#FFFFFC" >
-            <ListView.ItemTemplate>
+    <Grid Margin="0,0,0,0" RenderTransformOrigin="0,0" Background="#227C9D" DataContext="Tasks">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical" Width="410" Height="615" Margin="100,10,290,9" Grid.RowSpan="2">
+            <Label Content="Dagen i dag" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="400" Height="50" FontSize="20"/>
+            <ListView x:Name="lstVTasks" HorizontalAlignment="Left" Height="500"  Width="400" SelectionChanged="listViewOnSelectionChanged" ItemsSource = "{Binding Path = Tasks}"  Background="#FFFFFC" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="{Binding Path = taskName,Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="3" FontSize="12"></TextBlock>
+                            <CheckBox Name="Ferdig"  IsChecked="{Binding Path = finished,Mode = TwoWay}" Padding="3" FontSize="12"></CheckBox>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-                <DataTemplate>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="315">
 
-                    <WrapPanel>
-                        <TextBlock Text="{Binding Path = taskName,Mode = TwoWay}"></TextBlock>
-                        <TextBlock Text="{Binding Path = finished,Mode = TwoWay}"></TextBlock>
-                        <CheckBox Name="Ferdig"  IsChecked="{Binding Path = finished,Mode = TwoWay}"></CheckBox>
-                    </WrapPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Label Content="Dagen i dag" HorizontalAlignment="Left" Margin="51,33,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBlock x:Name="lbldebug" Margin="518,305,130,0" VerticalAlignment="Top" Height="360" Background="#FFFFFC" TextWrapping="Wrap"/>
-        <StackPanel Orientation="Horizontal" Height="60" Margin="0,714,0,10">
-            <Button x:Name="btnAdd" Content="Add" Click="onBtnAdd" BorderThickness="1" Background="#FF7F11" FontSize="18" HorizontalAlignment="Left" Width="100" Height="50"/>
-            <Button x:Name="btnEdit" Content="Edit"  Click="onBtnEdit" Background="#FF7F11" FontSize="18" Height="50" Width="100" />
-            <Button x:Name="btnDelete" Content="Delete" Click="onBtnDelete" HorizontalAlignment="Left" Background="#FF7F11" FontSize="18" Width="100" Height="50" />
+                <Button x:Name="btnAdd" Content="Add" Click="onBtnAdd" BorderThickness="1" Background="#FF7F11" FontSize="18" Width="100" Height="50"/>
+                <Button x:Name="btnEdit" Content="Edit"  Click="onBtnEdit" Background="#FF7F11" FontSize="18" Height="50" Width="100" />
+                <Button x:Name="btnDelete" Content="Delete" Click="onBtnDelete" Background="#FF7F11" FontSize="18" Width="100" Height="50" />
+
+            </StackPanel>
         </StackPanel>
-            <Calendar x:Name="calDagen" HorizontalAlignment="Left" Margin="518,85,0,506"  Background="#FFFFFC" Width="352" FontSize="18"/>
+        <StackPanel Orientation="Vertical" Width="200" Height="615"  Grid.RowSpan="2" HorizontalAlignment="Left" Margin="525,57,0,76"  >
+            <Calendar x:Name="calDagen" HorizontalAlignment="Left" Background="#FFFFFC" Width="200" FontSize="18"/>
+            <TextBlock x:Name="lblDescription" Height="400"  Width="200" SourceUpdated="lblDescription_SourceUpdated" Text="{Binding ElementName=lstVTasks, Path = SelectedItem.taskDescription ,Mode = TwoWay, UpdateSourceTrigger=PropertyChanged}"  Background="#FFFFFC" TextWrapping="Wrap"/>
+<!--
+            //{Binding ElementName=Task,Path=SelectedItem.Price}
+-->
+        </StackPanel>
     </Grid>
     <Window.Resources>
         <Style TargetType="ListView">
@@ -42,5 +54,6 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
     </Window.Resources>
 </Window>

@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace DagenMin
 {
+
     public class TaskViewModel
     {
         StorageHandler shandler;
         private ObservableCollection<Task> tasks;
+    
 
         public void Initialize()
         {
@@ -21,6 +23,7 @@ namespace DagenMin
         }
 
         public ObservableCollection<Task> Tasks { get => tasks; set => tasks = value; }
+     
 
         public TaskViewModel() { }
         public String taskName
@@ -49,11 +52,9 @@ namespace DagenMin
         internal void updateRow(Task t)
         {
             shandler.updateTask(t);
-
-         
                 tasks = shandler.getAllDaysTasks();
-                
             
         }
+        
     }
 }

@@ -8,11 +8,24 @@
         Title="NyOppgave" Height="450" Width="800">
 
     <Grid Background="#227C9D">
-
-        <Label  Content="Oppgave Navn" HorizontalAlignment="Left" Margin="54,0,0,374" VerticalAlignment="Bottom" FontSize="18"/>
-        <TextBox  Name="txbName" HorizontalAlignment="Left" Margin="203,0,0,378" Background="#FFFFFC" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" FontSize="18"/>
-        <Label Content="Beskrivelse" Margin="54,0,625,322" VerticalAlignment="Bottom" RenderTransformOrigin="-1.042,-2.282" FontSize="18"/>
-        <TextBox Name="txbDescription" Text="" TextWrapping="Wrap" Margin="203,78,350,87" Background="#FFFFFC" FontSize="16"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="53*" />
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="109*" />
+            <RowDefinition Height="109*" />
+            <RowDefinition Height="109*" />
+        </Grid.RowDefinitions>
+        <Label  Content="Oppgave Navn" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18"/>
+        <TextBox  Name="txbName" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1" Background="#FFFFFC" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" FontSize="18"/>
+        <Label Content="Beskrivelse" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="18"/>
+        <TextBox Name="txbDescription" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" Text="" TextWrapping="Wrap" Background="#FFFFFC" FontSize="16"/>
         <Button x:Name="btnCancel" Content="Avbryt" Margin="468,319,0,0" Background="#FF7F11" Click="btnCancel_Click" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Left" Width="179"/>
         <Button x:Name="btnAdd" Content="Legg til" Margin="468,286,0,0" Background="#FF7F11" Click="btnAdd_Click" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Left" Width="179"/>
         <Calendar x:Name="cal" HorizontalAlignment="Left" Margin="468,0,0,188" VerticalAlignment="Bottom" FontSize="18"/>
