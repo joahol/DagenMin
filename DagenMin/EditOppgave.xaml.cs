@@ -28,6 +28,8 @@ namespace DagenMin
             this.editTask = editTask;
             txbName.Text = editTask.taskName;
             txbDescription.Text = editTask.taskDescription;
+            if (editTask.schedueld != null) { }
+            cal.SelectedDate = editTask.schedueld;
             
         }
 
@@ -46,14 +48,10 @@ namespace DagenMin
                 
             }
             editTask.taskDescription = description;
-
             editTask.taskName = taskName;
             editTask.taskDescription = description;
-           // storeHandler.storeNewTask(t);
             tVM.updateRow(editTask);
-            
-            //tVM.Tasks.Add(t);
-                
+
             this.Close();
         }
 

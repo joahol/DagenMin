@@ -21,7 +21,7 @@ namespace DagenMin
             ObservableCollection<Task> tasks = new();
             while (sqlread.Read()) {
                 Console.WriteLine(sqlread[1] + " " + sqlread[2] + " " + sqlread[3]);
-                Task t = new Task(int.Parse(sqlread[0].ToString()), sqlread[1].ToString(), sqlread[2].ToString(), bool.Parse(sqlread[3].ToString()));
+                Task t = new Task(int.Parse(sqlread[0].ToString()), sqlread[1].ToString(), sqlread[2].ToString(), bool.Parse(sqlread[3].ToString()),DateTime.Parse(sqlread[4].ToString()));
                 tasks.Add(t);
             }
          
@@ -38,8 +38,8 @@ namespace DagenMin
         {
             SQLiteConnection con = getSQLConnection();
             con.Open();
-            String deleteSQL = "UPDATE tasks SET taskname='" + t.taskName + "', description='" + t.taskDescription + "' WHERE taskid='" + t.id + "';"; 
-            //get local path
+            String deleteSQL = "UPDATE tasks SET taskname='" + t.taskName + "', description='" + t.taskDescription+ "', taskdate='" + t.schedueld.ToString() + "' WHERE taskid='" + t.id + "';";
+            //get local path + "','" + task.schedueld.ToString() + "');";
             String localPath = System.IO.Directory.GetCurrentDirectory().ToString();
 
             SQLiteCommand com = new SQLiteCommand(con);
@@ -54,7 +54,7 @@ namespace DagenMin
             bool result = false;
             SQLiteConnection con = getSQLConnection();
             con.Open();
-            String sqlString = "insert into tasks (taskname,description,finished) values('" + task.taskName + "','" + task.taskDescription + "','" + task.finished.ToString() + "')";
+            String sqlString = "insert into tasks (taskname,description,finished,taskdate) values('" + task.taskName + "','" + task.taskDescription + "','" + task.finished.ToString() + "','" + task.schedueld.ToString() + "');";
             SQLiteCommand sqlCom = new SQLiteCommand(sqlString, con);
             sqlCom.ExecuteNonQuery();
             con.Close();

@@ -22,13 +22,17 @@
             <RowDefinition Height="109*" />
             <RowDefinition Height="109*" />
         </Grid.RowDefinitions>
-        <Label  Content="Oppgave Navn" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18"/>
+        <Label  Content="Task name" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18"/>
         <TextBox  Name="txbName" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1" Background="#FFFFFC" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" FontSize="18"/>
-        <Label Content="Beskrivelse" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="18"/>
+        <Label Content="Description" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="18"/>
         <TextBox Name="txbDescription" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" Text="" TextWrapping="Wrap" Background="#FFFFFC" FontSize="16"/>
-        <Button x:Name="btnCancel" Content="Avbryt" Margin="468,319,0,0" Background="#FF7F11" Click="btnCancel_Click" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Left" Width="179"/>
-        <Button x:Name="btnAdd" Content="Legg til" Margin="468,286,0,0" Background="#FF7F11" Click="btnAdd_Click" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Left" Width="179"/>
-        <Calendar x:Name="cal" HorizontalAlignment="Left" Margin="468,0,0,188" VerticalAlignment="Bottom" FontSize="18"/>
+        <StackPanel Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="btnCancel" Content="Cancel" Background="#FF7F11" Click="btnCancel_Click" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Left" Width="179"/>
+            <Button x:Name="btnAdd" Content="Add"   Background="#FF7F11" Click="btnAdd_Click" VerticalAlignment="Top" FontSize="18" HorizontalAlignment="Left" Width="179"/>
+
+        </StackPanel>
+      
+        <Calendar x:Name="cal" HorizontalAlignment="Left" Grid.Row="3" Grid.Column="2" FontSize="18"/>
 
     </Grid>
 </Window>

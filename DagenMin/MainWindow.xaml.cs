@@ -71,6 +71,8 @@ namespace DagenMin
             }
         }
 
+
+   
         private void lblDescription_SourceUpdated(object sender, DataTransferEventArgs e)
         {
             Task t = (Task)lstVTasks.SelectedItem;
@@ -79,5 +81,6 @@ namespace DagenMin
                 lblDescription.Text = t.taskDescription;
             }
         }
+    
     }
 }

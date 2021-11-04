@@ -41,7 +41,7 @@ namespace DagenMin
                 date = System.DateTime.Today;
                 cal.SelectedDate = date;
             }
-            Task t = new Task(taskName, description, false);
+            Task t = new Task(taskName, description, false,date);
             storeHandler.storeNewTask(t);
 
             tVM.Tasks.Add(t);

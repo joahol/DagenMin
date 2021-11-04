@@ -12,6 +12,7 @@ namespace DagenMin
     {
         private String taskname;
         private String taskdescription;
+        private DateTime datetime;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public String taskName {
@@ -22,6 +23,11 @@ namespace DagenMin
                 RaisePropertyChanged("taskName");
             }
         }
+public DateTime schedueld {
+            get;
+            set;
+        }
+
        public String taskDescription {
             get { return taskdescription; }
 
@@ -49,6 +55,20 @@ namespace DagenMin
             taskName = taskname;
             taskDescription = taskdescription;
             finished = finishe;
+        }
+        public Task(int ID, String taskname, String taskdescription, bool finishe, DateTime dta) {
+            id = ID;
+            taskName = taskname;
+            taskDescription = taskdescription;
+            finished = finishe;
+            schedueld =dta;
+        }
+        public Task(String taskname, String taskdescription, bool finishe, DateTime dta)
+        {
+            taskName = taskname;
+            taskDescription = taskdescription;
+            finished = finishe;
+            schedueld = dta;
         }
 
         private void RaisePropertyChanged(String property) {
